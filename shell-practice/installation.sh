@@ -7,11 +7,19 @@ if [ $USERID -ne 0 ]; then
     exit 1
 fi
 
+validatesandeep(){
+    if [ $1 -ne 0 ]; then
+        echo "install error $2"
+        exit 1
+    else
+        echo "install sucess $2"
+    fi
+}
+
+
 dnf install mysql -y
 
-if [ $? -ne 0 ]; then
-    echo "error"
-    exit 1
-else
-    echo "sucess"
-fi
+validatesandeep $? "mysql"
+
+dnf install nginx -y
+validatesandeep $? "nginx"
