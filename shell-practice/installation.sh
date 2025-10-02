@@ -5,7 +5,7 @@ USERID=$(id -u)
 if [ $USERID -ne 0 ]; then
     echo "ERROR"
     exit 1
-if
+fi
 
 dnf install mysql -y
 
